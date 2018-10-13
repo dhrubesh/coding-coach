@@ -26,6 +26,11 @@ module.exports = function(config) {
       'sass-loader',
     ],
   });
+  config.module.rules.push({
+    test: /messages.json$/,
+    include: [path.resolve('src/config/i18n/')],
+    use: '@lingui/loader'
+  })
 
   // Adding the `src` folder to the resolvers, this will
   // allows to import js files using the `src` as root.
